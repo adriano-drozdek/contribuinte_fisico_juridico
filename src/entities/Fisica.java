@@ -24,7 +24,18 @@ public class Fisica extends Contribuinte {
 	@Override
 	public double imposto() {
 
-		return 0;
+		double taxaImposto;
+		if (getRendaAnual() < 20000.0) {
+			taxaImposto = getRendaAnual() * 0.15;
+		} 
+		else {
+			taxaImposto = getRendaAnual() * 0.25;
+		}
+		taxaImposto -= getDespesaSaude() * 0.5;
+		if (taxaImposto < 0.0) {
+			taxaImposto = 0.0;
+		}
+		return taxaImposto;
 	}
 
 }
