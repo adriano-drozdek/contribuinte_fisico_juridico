@@ -23,8 +23,11 @@ public class Juridica extends Contribuinte {
 
 	@Override
 	public double imposto() {
-
-		return 0;
+		if (quantidadePessoas > 10) {
+			return getRendaAnual() * 0.14;
+		}
+		else {
+			return getRendaAnual() * 0.16;
+		}
 	}
-
 }
